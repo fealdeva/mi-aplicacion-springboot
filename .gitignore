@@ -31,3 +31,27 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# Archivos de log
+*.log
+
+# Archivos de configuración de Spring Boot
+*.properties
+*.yml
