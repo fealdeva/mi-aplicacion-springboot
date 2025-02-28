@@ -10,7 +10,7 @@ public class holaController {
 
     @GetMapping("/")
     public String hola(Model model) {
-        model.addAttribute("mensaje", "Hola Mundo desde SpringBoot en la investigación Felipe Delgado Valverde");
+        model.addAttribute("mensaje", "HOLA MUNDO DESDE SPRING BOOT! Investigación creada por Felipe Delgado Valverde como evidencia.");
         return "holamundo";
     }
     
