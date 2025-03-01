@@ -1,27 +1,29 @@
 # IMAGEN MODELO CREADA A PARTIR DE UNA YA EXISTENTE
-#FROM eclipse-temurin:23.0.2_7-jdk
-FROM eclipse-temurin:23-jdk AS build
+FROM eclipse-temurin:23.0.2_7-jdk
+#FROM openjdk:23-jdk AS build
 
 #PUERTO 
 EXPOSE 8080
 
 #DEFINIR EL DIRECTORIO RAÍZ DEL CONTENEDOR
-WORKDIR /root
+WORKDIR /app
 
 #ARCHIVOS DEL CONTENEDOR
 #EL PRIMER ARCHIVO QUE DEBEMOS COLOCAR ES pom.xml QUE CONTIENE LAS DEPENDENCIAS.
 #COPIAMOS NUESTRO ARCHIVO EN LA CARPETA RAÍZ DEL CONTENEDOR
-COPY ./pom.xml /root
+COPY ./docker-compose.yml /app
+COPY ./dockerfile /app
+COPY ./pom.xml /app
 #PARA EJECUTAR MAVEN EMBEBIDO
-COPY ./.mvn /root.mvn
+COPY ./.mvn /app.mvn
 #COPIAR LOS EJECUTABLES DE MAVEN
-COPY ./mvnw /root
+COPY ./mvnw /app
 
 
 #COPIAR EL CÓDIGO FUENTE DENTRO DEL CONTENEDOR
-COPY ./src /root/src
+COPY ./src /app/src
 
 
 #LEVANTAR NUESTRA APP CUANDO INICIE CONTENEDOR
 #EJECUTAR COMANDO SOLAMENTE CUANDO EL CONTENEDOR INICIE
-ENTRYPOINT ["java","-jar","/root/target/SpringDocker-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","/app/target/SpringDocker-0.0.1-SNAPSHOT.jar"]
