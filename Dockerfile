@@ -1,5 +1,6 @@
 # IMAGEN MODELO CREADA A PARTIR DE UNA YA EXISTENTE
-FROM eclipse-temurin:23.0.2_7-jdk
+#FROM eclipse-temurin:23.0.2_7-jdk
+FROM eclipse-temurin:23-jdk AS build
 
 #PUERTO 
 EXPOSE 8080
