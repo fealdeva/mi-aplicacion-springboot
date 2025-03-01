@@ -1,6 +1,6 @@
 # IMAGEN MODELO CREADA A PARTIR DE UNA YA EXISTENTE
-FROM eclipse-temurin:23.0.2_7-jdk
-#FROM openjdk:23-jdk AS build
+#FROM eclipse-temurin:23.0.2_7-jdk
+FROM eclipse-temurin:23-jdk AS build
 
 #PUERTO 
 EXPOSE 8080
@@ -11,8 +11,8 @@ WORKDIR /app
 #ARCHIVOS DEL CONTENEDOR
 #EL PRIMER ARCHIVO QUE DEBEMOS COLOCAR ES pom.xml QUE CONTIENE LAS DEPENDENCIAS.
 #COPIAMOS NUESTRO ARCHIVO EN LA CARPETA RAÍZ DEL CONTENEDOR
-COPY ./docker-compose.yml /app
-COPY ./dockerfile /app
+COPY ./target/docker-compose.yml /app
+
 COPY ./pom.xml /app
 #PARA EJECUTAR MAVEN EMBEBIDO
 COPY ./.mvn /app.mvn
